@@ -1,36 +1,22 @@
 require_relative 'day-one'
 require_relative 'day-two'
 
-day = nil
-dayName = nil
-part = nil
 puts "Day number..."
-day = gets.to_i
-
-case day
-when 1
-    day = DayOne.new
-    dayName = "One"
-when 2
-    day = DayTwo.new
-    dayName = "Two"
-else 
-    puts "Incorrect day"
-    exit 1
-end
+day = {
+    1 => [DayOne.new, "one"],
+    2 => [DayTwo.new, "two"],
+}[gets.to_i]
 
 puts "Part number..."
-part = gets.to_i
+part = {
+    1 => 'first',
+    2 => 'second',
+}[gets.to_i]
 
-case part
-when 1
-    part = 'first'
-when 2
-    part = 'second'
-else
-    puts "Incorrect part"
-    exit 1
+if (!day || !part)
+    puts "Dodgy input. See ya!"
+    exit 0
 end
 
-puts "Running Day #{dayName}, #{part} part"
-day.public_send(part)
+puts "Running Day #{day[1]}, #{part} part"
+day[0].public_send(part)
