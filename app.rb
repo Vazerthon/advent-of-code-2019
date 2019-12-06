@@ -19,4 +19,4 @@ if (!day || !part)
 end
 
 puts "Running Day #{day[1]}, #{part} part"
-day[0].public_send(part)
+day[0].send(part)
