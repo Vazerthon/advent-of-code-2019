@@ -1,10 +1,12 @@
 require_relative 'day-one'
 require_relative 'day-two'
+require_relative 'day-three'
 
 puts "Day number..."
 day = {
     1 => [DayOne.new, "one"],
     2 => [DayTwo.new, "two"],
+    3 => [DayThree.new, "three"],
 }[gets.to_i]
 
 puts "Part number..."
